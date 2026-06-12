@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Kuzushi",
+    "slug": "kuzushi",
+    "summary": "Agentic SAST scanner with AI triage.",
+    "metaDescription": "Kuzushi is an agentic SAST scanner for AppSec teams, with source-to-sink hunting, AI triage, traceable findings, and replayable scan artifacts.",
+    "description": "Kuzushi is an agentic application-security scanner that maps code, hunts source-to-sink paths, triages findings, and keeps scan evidence replayable across shell, run, and scan workflows.",
+    "focus": "ProdSec and AppSec automation for teams that need evidence-backed vulnerability review.",
+    "category": "AppSec automation",
+    "language": "Rust",
+    "repo": "https://github.com/allsmog/Kuzushi",
+    "image": "/assets/social/kuzushi.png",
+    "topics": ["appsec", "sast", "agentic-ai", "static-analysis", "threat-modeling"],
+    "highlights": [
+      "Modular scanner runtime for DAG-based security pipelines.",
+      "Agentic triage surfaces that reduce false-positive review load.",
+      "Replayable artifacts, trace output, and Rust-native operator UI."
+    ]
+  },
+  {
+    "name": "mcp-pentest",
+    "slug": "mcp-pentest",
+    "summary": "MCP server for authorized pentest workflows.",
+    "metaDescription": "mcp-pentest is an MCP server for authorized pentest workflows with Nmap, Gobuster, OSINT context, AI-assisted triage, and reporting.",
+    "description": "mcp-pentest exposes authorized network and web-enumeration workflows through Model Context Protocol so operators can orchestrate Nmap, Gobuster, OSINT context, triage, and reporting from an agent host.",
+    "focus": "Security automation for controlled, scoped penetration testing.",
+    "category": "Pentest MCP",
+    "language": "Python",
+    "repo": "https://github.com/allsmog/mcp-pentest",
+    "image": "/assets/social/mcp-pentest.png",
+    "topics": ["mcp", "penetration-testing", "nmap", "gobuster", "security-automation"],
+    "highlights": [
+      "MCP-native interface for scoped pentest task execution.",
+      "Tooling around Nmap, Gobuster, OSINT context, and reports.",
+      "Built for authorized workflows instead of open-ended offensive automation."
+    ]
+  },
+  {
+    "name": "SignalTrace",
+    "slug": "signaltrace",
+    "summary": "Real-time OSINT intelligence dashboard.",
+    "metaDescription": "SignalTrace is a real-time OSINT dashboard for conflict, crisis, maritime, aviation, infrastructure, and humanitarian signals.",
+    "description": "SignalTrace turns conflict, crisis, maritime, aviation, infrastructure, radiation, and humanitarian signals into a real-time OSINT dashboard for situational awareness.",
+    "focus": "OSINT, NatSec, crisis monitoring, and geospatial intelligence workflows.",
+    "category": "OSINT dashboard",
+    "language": "TypeScript",
+    "repo": "https://github.com/allsmog/SignalTrace",
+    "image": "/assets/social/signaltrace.png",
+    "topics": ["osint", "threat-intelligence", "geospatial", "situational-awareness", "crisis-response"],
+    "highlights": [
+      "Map-first interface for fast signal review.",
+      "Conflict, infrastructure, maritime, aviation, and humanitarian streams.",
+      "Cloudflare Workers, React, Leaflet, and Hono architecture."
+    ]
+  },
+  {
+    "name": "VolatilityAI",
+    "slug": "volatilityai",
+    "summary": "AI-assisted Volatility3 memory forensics.",
+    "metaDescription": "VolatilityAI is a Volatility3 memory-forensics companion for DFIR triage, timelines, report diffing, and grounded LLM-assisted investigation.",
+    "description": "VolatilityAI is a DFIR companion for Volatility3 that combines deterministic memory-forensics rules, timelines, report diffing, and grounded LLM-assisted investigation.",
+    "focus": "Memory forensics and incident response workflows.",
+    "category": "Memory forensics",
+    "language": "Python",
+    "repo": "https://github.com/allsmog/VolatilityAI",
+    "image": "/assets/social/volatilityai.png",
+    "topics": ["dfir", "memory-forensics", "volatility3", "incident-response", "malware-analysis"],
+    "highlights": [
+      "Grounded triage for Volatility3 evidence.",
+      "Timelines, report diffing, and incident-response summaries.",
+      "LLM-assisted DFIR without replacing deterministic analysis."
+    ]
+  },
+  {
+    "name": "zkdpop-go",
+    "slug": "zkdpop-go",
+    "summary": "Zero-knowledge login and sender-constrained tokens in Go.",
+    "metaDescription": "zkdpop-go is a Go framework for Schnorr ZK login, DPoP-bound JWTs, proof-of-possession auth, and ready-to-use middleware.",
+    "description": "zkdpop-go is a Go framework for interactive Schnorr zero-knowledge authentication, short-lived JWTs, DPoP key binding, and ready-to-use middleware.",
+    "focus": "Applied cryptography, authentication, and proof-of-possession access control.",
+    "category": "Applied crypto",
+    "language": "Go",
+    "repo": "https://github.com/allsmog/zkdpop-go",
+    "image": "/assets/social/zkdpop-go.png",
+    "topics": ["cryptography", "authentication", "dpop", "jwt", "zero-knowledge-proofs"],
+    "highlights": [
+      "Interactive Schnorr ZK login primitives.",
+      "JWT verification bound to client DPoP keys.",
+      "Reference auth server and middleware for Go services."
+    ]
+  },
+  {
+    "name": "detonate",
+    "slug": "detonate",
+    "summary": "Open-source malware analysis sandbox.",
+    "metaDescription": "detonate is a malware-analysis sandbox with Docker, QEMU, telemetry, YARA, Suricata, threat-intel enrichment, and AI reports.",
+    "description": "detonate is a malware-analysis sandbox with Docker and QEMU execution, telemetry, YARA, Suricata, threat-intelligence enrichment, and AI-assisted reports.",
+    "focus": "Malware analysis, reverse engineering, and DFIR lab automation.",
+    "category": "Malware sandbox",
+    "language": "Python",
+    "repo": "https://github.com/allsmog/detonate",
+    "image": "/assets/social/detonate.png",
+    "topics": ["malware-analysis", "malware-sandbox", "dfir", "yara", "suricata"],
+    "highlights": [
+      "Sandbox execution paths around Docker and QEMU.",
+      "YARA, Suricata, telemetry, and threat-intel enrichment.",
+      "Designed for repeatable malware-analysis reporting."
+    ]
+  }
+]

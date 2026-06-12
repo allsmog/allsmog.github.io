@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <rect width="1280" height="640" fill="#0b101b"/>
+  <image href="social/kuzushi.png" x="600" y="64" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>
+  <image href="social/mcp-pentest.png" x="915" y="64" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>
+  <image href="social/signaltrace.png" x="600" y="240" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>
+  <image href="social/volatilityai.png" x="915" y="240" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>
+  <image href="social/zkdpop-go.png" x="600" y="416" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>
+  <image href="social/detonate.png" x="915" y="416" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>
+  <rect width="1280" height="640" fill="url(#shade)"/>
+  <defs>
+    <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#0b101b" stop-opacity="0.98"/>
+      <stop offset="0.58" stop-color="#0b101b" stop-opacity="0.74"/>
+      <stop offset="1" stop-color="#0b101b" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <text x="72" y="116" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#7dd3c7">ProdSec / AppSec / NatSec / OSINT</text>
+  <text x="72" y="234" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">Sean Nejad</text>
+  <text x="72" y="314" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">allsmog</text>
+  <text x="72" y="390" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="500" fill="#dbe7f3">Security researcher and builder</text>
+  <text x="72" y="448" font-family="Inter, Arial, sans-serif" font-size="24" fill="#dbe7f3">Agentic SAST, MCP security, OSINT, DFIR, malware analysis, applied crypto</text>
+  <rect x="72" y="510" width="178" height="48" rx="6" fill="#ffffff"/>
+  <text x="96" y="542" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">allsmog.github.io</text>
+</svg>
