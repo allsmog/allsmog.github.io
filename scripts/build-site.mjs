@@ -30,18 +30,41 @@ function tags(topics) {
 
 function projectCard(project) {
   return `
-    <article class="project-card">
+    <article class="project-card" style="--project-accent: ${escapeHtml(project.accent)}">
       <a href="/projects/${project.slug}/" aria-label="${escapeHtml(project.name)} project page">
-        <img src="${project.image}" alt="${escapeHtml(project.name)} social preview" width="1280" height="640" loading="lazy">
+        <img src="${project.visual}" alt="${escapeHtml(project.name)} project artifact preview" width="1280" height="720" loading="lazy">
       </a>
       <div class="project-card-body">
         <div class="meta-row">
-          <span class="meta-pill">${escapeHtml(project.language)}</span>
-          <span class="meta-pill">${escapeHtml(project.category)}</span>
+          <span class="meta-pill language-pill">${escapeHtml(project.language)}</span>
+          <span class="meta-pill category-pill">${escapeHtml(project.category)}</span>
         </div>
         <h3><a href="/projects/${project.slug}/">${escapeHtml(project.name)}</a></h3>
         <p>${escapeHtml(project.summary)}</p>
         <div class="tag-row">${tags(project.topics.slice(0, 5))}</div>
+        <div class="section-actions">
+          <a class="button secondary" href="/projects/${project.slug}/">Project page</a>
+          <a class="button secondary" href="${project.repo}">GitHub</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function researchCard(project) {
+  return `
+    <article class="research-card" style="--project-accent: ${escapeHtml(project.accent)}">
+      <a class="research-thumb" href="/projects/${project.slug}/" aria-label="${escapeHtml(project.name)} project page">
+        <img src="${project.visual}" alt="${escapeHtml(project.name)} project artifact preview" width="1280" height="720" loading="lazy">
+      </a>
+      <div class="research-card-body">
+        <div class="meta-row">
+          <span class="meta-pill language-pill">${escapeHtml(project.language)}</span>
+          <span class="meta-pill category-pill">${escapeHtml(project.category)}</span>
+        </div>
+        <h3><a href="/projects/${project.slug}/">${escapeHtml(project.name)}</a></h3>
+        <p>${escapeHtml(project.summary)}</p>
+        <div class="tag-row">${tags(project.topics.slice(0, 3))}</div>
         <div class="section-actions">
           <a class="button secondary" href="/projects/${project.slug}/">Project page</a>
           <a class="button secondary" href="${project.repo}">GitHub</a>
@@ -100,6 +123,8 @@ function shell({ title, description, path = "/", image = "/assets/site-preview.p
 function homePage() {
   const description =
     "Sean Nejad / allsmog builds ProdSec and AppSec systems across AI security, MCP, OSINT, DFIR, malware analysis, reverse engineering, and applied cryptography.";
+  const flagship = projects.filter((project) => project.group === "flagship");
+  const research = projects.filter((project) => project.group === "research");
   const itemList = projects.map((project, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -107,7 +132,7 @@ function homePage() {
     name: project.name,
   }));
   const body = `
-    <section class="hero" style="--hero-image: url('/assets/site-preview.png')">
+    <section class="hero" style="--hero-image: url('/assets/site-hero.png')">
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">ProdSec / AppSec / NatSec / OSINT</p>
@@ -126,7 +151,16 @@ function homePage() {
           <h2>Flagship projects</h2>
           <p>Focused project pages for the repos that best represent the security portfolio: product security, application security, OSINT, DFIR, malware analysis, and applied crypto.</p>
         </div>
-        <div class="project-grid">${projects.map(projectCard).join("")}</div>
+        <div class="project-grid">${flagship.map(projectCard).join("")}</div>
+      </div>
+    </section>
+    <section class="page-section research-section" id="research-infrastructure">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Research infrastructure</h2>
+          <p>Program-analysis and network-assessment repos that round out the portfolio beyond the six primary product-style projects.</p>
+        </div>
+        <div class="research-list">${research.map(researchCard).join("")}</div>
       </div>
     </section>
     <section class="page-section" id="domains">
@@ -182,7 +216,7 @@ function homePage() {
 function projectPage(project) {
   const description = project.metaDescription;
   const body = `
-    <section class="hero" style="--hero-image: url('${project.image}')">
+    <section class="hero project-hero" style="--hero-image: url('${project.visual}'); --project-accent: ${escapeHtml(project.accent)}">
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">${escapeHtml(project.language)} / ${escapeHtml(project.topics.slice(0, 3).join(" / "))}</p>
@@ -207,8 +241,8 @@ function projectPage(project) {
             <ul>${project.highlights.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
           </section>
           <section class="content-block">
-            <h2>Search signals</h2>
-            <p>${escapeHtml(project.name)} sits in the ${escapeHtml(project.topics.join(", "))} space and links back to the source repository for code, releases, issues, and documentation.</p>
+            <h2>Related areas</h2>
+            <p>${escapeHtml(project.name)} connects to ${escapeHtml(project.topics.join(", "))}. The source repository carries the code, releases, issues, and documentation trail.</p>
           </section>
         </div>
         <aside class="fact-panel" aria-label="${escapeHtml(project.name)} facts">
@@ -227,7 +261,7 @@ function projectPage(project) {
     title: `${project.name} | allsmog Security Projects`,
     description,
     path: `/projects/${project.slug}/`,
-    image: project.image,
+    image: project.visual,
     body,
     jsonLd: {
       "@context": "https://schema.org",
@@ -292,9 +326,9 @@ ${urls
 function sitePreviewSvg() {
   const imageTiles = projects
     .map((project, index) => {
-      const x = 600 + (index % 2) * 315;
-      const y = 64 + Math.floor(index / 2) * 176;
-      return `<image href="social/${project.slug}.png" x="${x}" y="${y}" width="292" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>`;
+      const x = 580 + (index % 3) * 214;
+      const y = 64 + Math.floor(index / 3) * 168;
+      return `<image href="project-visuals/${project.slug}.png" x="${x}" y="${y}" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>`;
     })
     .join("\n  ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
@@ -318,6 +352,29 @@ function sitePreviewSvg() {
 </svg>`;
 }
 
+function siteHeroSvg() {
+  const featured = projects.slice(0, 6);
+  const tiles = featured
+    .map((project, index) => {
+      const x = 612 + (index % 2) * 292;
+      const y = 84 + Math.floor(index / 2) * 170;
+      return `<image href="project-visuals/${project.slug}.png" x="${x}" y="${y}" width="260" height="146" preserveAspectRatio="xMidYMid slice" opacity="0.92"/>`;
+    })
+    .join("\n  ");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#07111f"/>
+  ${tiles}
+  <rect width="1280" height="720" fill="url(#shade)"/>
+  <defs>
+    <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#07111f" stop-opacity="0.98"/>
+      <stop offset="0.62" stop-color="#07111f" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#07111f" stop-opacity="0.34"/>
+    </linearGradient>
+  </defs>
+</svg>`;
+}
+
 write("index.html", homePage());
 for (const project of projects) {
   write(`projects/${project.slug}/index.html`, projectPage(project));
@@ -329,3 +386,4 @@ Sitemap: ${absolute("/sitemap.xml")}`);
 write("sitemap.xml", sitemap());
 write(".nojekyll", "");
 write("assets/site-preview.svg", sitePreviewSvg());
+write("assets/site-hero.svg", siteHeroSvg());
