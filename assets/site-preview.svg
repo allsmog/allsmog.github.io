@@ -1,27 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
-  <rect width="1280" height="640" fill="#0b101b"/>
-  <image href="project-visuals/kuzushi.png" x="580" y="64" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/mcp-pentest.png" x="794" y="64" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/signaltrace.png" x="1008" y="64" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/volatilityai.png" x="580" y="232" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/zkdpop-go.png" x="794" y="232" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/detonate.png" x="1008" y="232" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/oxidized-joern.png" x="580" y="400" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/klee-ng.png" x="794" y="400" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
-  <image href="project-visuals/ligolo-ng-relay.png" x="1008" y="400" width="196" height="112" preserveAspectRatio="xMidYMid slice" opacity="0.9"/>
+  <rect width="1280" height="640" fill="#0c0e12"/>
+  <path d="M0 86H1280M0 174H1280M0 262H1280M0 350H1280M0 438H1280M0 526H1280M160 0V640M320 0V640M480 0V640M640 0V640M800 0V640M960 0V640M1120 0V640" stroke="#242832" stroke-width="1" opacity="0.42"/>
+  <image href="project-visuals/kuzushi.png" x="650" y="72" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="project-visuals/mcp-pentest.png" x="910" y="72" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="project-visuals/signaltrace.png" x="650" y="236" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="project-visuals/volatilityai.png" x="910" y="236" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="project-visuals/zkdpop-go.png" x="650" y="400" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="project-visuals/detonate.png" x="910" y="400" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
   <rect width="1280" height="640" fill="url(#shade)"/>
   <defs>
     <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0" stop-color="#0b101b" stop-opacity="0.98"/>
-      <stop offset="0.58" stop-color="#0b101b" stop-opacity="0.74"/>
-      <stop offset="1" stop-color="#0b101b" stop-opacity="0.2"/>
+      <stop offset="0" stop-color="#0c0e12" stop-opacity="0.98"/>
+      <stop offset="0.62" stop-color="#0c0e12" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#0c0e12" stop-opacity="0.36"/>
     </linearGradient>
   </defs>
-  <text x="72" y="116" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#7dd3c7">ProdSec / AppSec / NatSec / OSINT</text>
-  <text x="72" y="234" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">Sean Nejad</text>
-  <text x="72" y="314" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">allsmog</text>
-  <text x="72" y="390" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="500" fill="#dbe7f3">Security researcher and builder</text>
-  <text x="72" y="448" font-family="Inter, Arial, sans-serif" font-size="24" fill="#dbe7f3">Agentic SAST, MCP security, OSINT, DFIR, malware analysis, applied crypto</text>
-  <rect x="72" y="510" width="178" height="48" rx="6" fill="#ffffff"/>
-  <text x="96" y="542" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#111827">allsmog.github.io</text>
+  <text x="72" y="116" font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace" font-size="23" font-weight="700" fill="#d4ff4f">prodsec / appsec / natsec / osint</text>
+  <text x="72" y="254" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="850" fill="#e8e6e1">Sean Nejad</text>
+  <text x="72" y="316" font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace" font-size="27" fill="#9ca3af">// @allsmog · security research + builder</text>
+  <text x="72" y="404" font-family="Inter, Arial, sans-serif" font-size="29" fill="#c9c7c1">Agentic SAST, CPG analysis, symbolic execution, OSINT, DFIR, malware, applied crypto.</text>
 </svg>

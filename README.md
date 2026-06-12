@@ -10,5 +10,4 @@ node scripts/generate-project-visuals.mjs
 for svg in assets/project-visuals/*.svg; do rsvg-convert "$svg" -o "${svg%.svg}.png"; done
 node scripts/build-site.mjs
 rsvg-convert assets/site-preview.svg -o assets/site-preview.png
-rsvg-convert assets/site-hero.svg -o assets/site-hero.png
 ```
