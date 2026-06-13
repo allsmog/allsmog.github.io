@@ -246,7 +246,7 @@ h3 {
   aspect-ratio: 16 / 9;
   border: 1px solid var(--line-strong);
   box-shadow: var(--shadow);
-  object-fit: contain;
+  object-fit: cover;
   opacity: 0.78;
   position: relative;
   width: 100%;
@@ -318,7 +318,7 @@ h3 {
 
 .feature-art img {
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   opacity: 0.92;
   transition: opacity 160ms ease, transform 160ms ease;
   width: 100%;
@@ -401,6 +401,7 @@ h3 {
 }
 
 .index-grid {
+  align-items: start;
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -426,7 +427,8 @@ h3 {
 
 .index-art img {
   aspect-ratio: 16 / 9;
-  object-fit: contain;
+  height: auto;
+  object-fit: cover;
   opacity: 0.88;
   width: 100%;
 }
@@ -692,6 +694,11 @@ h3 {
   .index-card {
     display: grid;
     grid-template-columns: 106px minmax(0, 1fr);
+  }
+
+  .index-art {
+    aspect-ratio: auto;
+    height: 100%;
   }
 
   .index-art img {

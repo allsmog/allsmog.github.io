@@ -1,0 +1,23 @@
+# Sean Nejad / allsmog
+
+Canonical site: https://allsmog.github.io
+GitHub: https://github.com/allsmog
+
+Sean Nejad is a builder and security researcher focused on ProdSec, AppSec, OSINT, DFIR, malware analysis, program analysis, MCP security, network security, and applied cryptography.
+
+## Core pages
+
+- https://allsmog.github.io/ — portfolio index and selected work
+- https://allsmog.github.io/projects/kuzushi/ — Kuzushi: Kuzushi is an agentic SAST scanner for AppSec teams, with source-to-sink hunting, AI triage, traceable findings, and replayable scan artifacts.
+- https://allsmog.github.io/projects/mcp-pentest/ — mcp-pentest: mcp-pentest is an MCP server for authorized pentest workflows with Nmap, Gobuster, OSINT context, AI-assisted triage, and reporting.
+- https://allsmog.github.io/projects/signaltrace/ — SignalTrace: SignalTrace is a real-time OSINT dashboard for conflict, crisis, maritime, aviation, infrastructure, and humanitarian signals.
+- https://allsmog.github.io/projects/volatilityai/ — VolatilityAI: VolatilityAI is a Volatility3 memory-forensics companion for DFIR triage, timelines, report diffing, and grounded LLM-assisted investigation.
+- https://allsmog.github.io/projects/zkdpop-go/ — zkdpop-go: zkdpop-go is a Go framework for Schnorr ZK login, DPoP-bound JWTs, proof-of-possession auth, and ready-to-use middleware.
+- https://allsmog.github.io/projects/detonate/ — detonate: detonate is a malware-analysis sandbox with Docker, QEMU, telemetry, YARA, Suricata, threat-intel enrichment, and AI reports.
+- https://allsmog.github.io/projects/oxidized-joern/ — oxidized-joern: oxidized-joern is a Rust-first Joern fork exploring faster code-property-graph frontends and security-analysis components.
+- https://allsmog.github.io/projects/klee-ng/ — klee-ng: klee-ng is a KLEE symbolic-execution fork for program analysis, test generation, and vulnerability-research workflows.
+- https://allsmog.github.io/projects/ligolo-ng-relay/ — ligolo-ng-relay: ligolo-ng-relay is a Ligolo-ng relay fork for TUN-based tunneling, pivoting, and authorized network-assessment workflows.
+
+## Keywords
+
+ProdSec, AppSec, security researcher, builder, OSINT, NatSec interest, DFIR, malware analysis, reverse engineering, agentic SAST, code-property graph, CPG, symbolic execution, KLEE, Joern, MCP security, penetration testing automation, network security, tunneling, applied cryptography, zero-knowledge authentication.

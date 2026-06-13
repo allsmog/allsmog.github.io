@@ -12,14 +12,23 @@
     "accent": "#0f766e",
     "language": "Rust",
     "repo": "https://github.com/allsmog/Kuzushi",
-    "image": "/assets/social/kuzushi.png",
-    "visual": "/assets/project-visuals/kuzushi.png",
-    "topics": ["appsec", "sast", "agentic-ai", "static-analysis", "threat-modeling"],
+    "image": "/assets/generated/sean-nejad-kuzushi-agentic-appsec-scanner.jpg",
+    "visual": "/assets/generated/sean-nejad-kuzushi-agentic-appsec-scanner.jpg",
+    "topics": [
+      "appsec",
+      "sast",
+      "agentic-ai",
+      "static-analysis",
+      "threat-modeling"
+    ],
     "highlights": [
       "Modular scanner runtime for DAG-based security pipelines.",
       "Agentic triage surfaces that reduce false-positive review load.",
       "Replayable artifacts, trace output, and Rust-native operator UI."
-    ]
+    ],
+    "imageAlt": "Cinematic dark lab visualization of Kuzushi agentic AppSec scanning, evidence traces, and source-to-sink analysis nodes.",
+    "seoTitle": "Kuzushi Agentic SAST Scanner | Sean Nejad / allsmog",
+    "imageCaption": "Kuzushi agentic AppSec scanner artwork for source-to-sink security analysis and evidence-backed triage."
   },
   {
     "name": "mcp-pentest",
@@ -34,14 +43,23 @@
     "accent": "#9f1239",
     "language": "Python",
     "repo": "https://github.com/allsmog/mcp-pentest",
-    "image": "/assets/social/mcp-pentest.png",
-    "visual": "/assets/project-visuals/mcp-pentest.png",
-    "topics": ["mcp", "penetration-testing", "nmap", "gobuster", "security-automation"],
+    "image": "/assets/generated/sean-nejad-mcp-pentest-security-automation.jpg",
+    "visual": "/assets/generated/sean-nejad-mcp-pentest-security-automation.jpg",
+    "topics": [
+      "mcp",
+      "penetration-testing",
+      "nmap",
+      "gobuster",
+      "security-automation"
+    ],
     "highlights": [
       "MCP-native interface for scoped pentest task execution.",
       "Tooling around Nmap, Gobuster, OSINT context, and reports.",
       "Built for authorized workflows instead of open-ended offensive automation."
-    ]
+    ],
+    "imageAlt": "Cinematic dark lab visualization of MCP pentest security automation with scoped protocol nodes and evidence-report artifacts.",
+    "seoTitle": "mcp-pentest MCP Security Automation | Sean Nejad / allsmog",
+    "imageCaption": "mcp-pentest artwork for authorized MCP security automation, reconnaissance orchestration, and reporting workflows."
   },
   {
     "name": "SignalTrace",
@@ -56,14 +74,23 @@
     "accent": "#1d4ed8",
     "language": "TypeScript",
     "repo": "https://github.com/allsmog/SignalTrace",
-    "image": "/assets/social/signaltrace.png",
-    "visual": "/assets/project-visuals/signaltrace.png",
-    "topics": ["osint", "threat-intelligence", "geospatial", "situational-awareness", "crisis-response"],
+    "image": "/assets/generated/sean-nejad-signaltrace-osint-dashboard.jpg",
+    "visual": "/assets/generated/sean-nejad-signaltrace-osint-dashboard.jpg",
+    "topics": [
+      "osint",
+      "threat-intelligence",
+      "geospatial",
+      "situational-awareness",
+      "crisis-response"
+    ],
     "highlights": [
       "Map-first interface for fast signal review.",
       "Conflict, infrastructure, maritime, aviation, and humanitarian streams.",
       "Cloudflare Workers, React, Leaflet, and Hono architecture."
-    ]
+    ],
+    "imageAlt": "Cinematic dark OSINT operations table with geospatial signal arcs, event beacons, and intelligence evidence tiles for SignalTrace.",
+    "seoTitle": "SignalTrace OSINT Dashboard | Sean Nejad / allsmog",
+    "imageCaption": "SignalTrace OSINT dashboard artwork for crisis, maritime, aviation, infrastructure, and humanitarian signal analysis."
   },
   {
     "name": "VolatilityAI",
@@ -78,14 +105,23 @@
     "accent": "#6d28d9",
     "language": "Python",
     "repo": "https://github.com/allsmog/VolatilityAI",
-    "image": "/assets/social/volatilityai.png",
-    "visual": "/assets/project-visuals/volatilityai.png",
-    "topics": ["dfir", "memory-forensics", "volatility3", "incident-response", "malware-analysis"],
+    "image": "/assets/generated/sean-nejad-volatilityai-dfir-memory-forensics.jpg",
+    "visual": "/assets/generated/sean-nejad-volatilityai-dfir-memory-forensics.jpg",
+    "topics": [
+      "dfir",
+      "memory-forensics",
+      "volatility3",
+      "incident-response",
+      "malware-analysis"
+    ],
     "highlights": [
       "Grounded triage for Volatility3 evidence.",
       "Timelines, report diffing, and incident-response summaries.",
       "LLM-assisted DFIR without replacing deterministic analysis."
-    ]
+    ],
+    "imageAlt": "Cinematic dark DFIR bench with memory modules, process-tree evidence, and violet forensic timeline artifacts for VolatilityAI.",
+    "seoTitle": "VolatilityAI DFIR Memory Forensics | Sean Nejad / allsmog",
+    "imageCaption": "VolatilityAI artwork for DFIR memory forensics, evidence timelines, report diffing, and investigation workflows."
   },
   {
     "name": "zkdpop-go",
@@ -100,14 +136,23 @@
     "accent": "#0891b2",
     "language": "Go",
     "repo": "https://github.com/allsmog/zkdpop-go",
-    "image": "/assets/social/zkdpop-go.png",
-    "visual": "/assets/project-visuals/zkdpop-go.png",
-    "topics": ["cryptography", "authentication", "dpop", "jwt", "zero-knowledge-proofs"],
+    "image": "/assets/generated/sean-nejad-zkdpop-go-zero-knowledge-auth.jpg",
+    "visual": "/assets/generated/sean-nejad-zkdpop-go-zero-knowledge-auth.jpg",
+    "topics": [
+      "cryptography",
+      "authentication",
+      "dpop",
+      "jwt",
+      "zero-knowledge-proofs"
+    ],
     "highlights": [
       "Interactive Schnorr ZK login primitives.",
       "JWT verification bound to client DPoP keys.",
       "Reference auth server and middleware for Go services."
-    ]
+    ],
+    "imageAlt": "Cinematic dark cryptography visualization of zero-knowledge proof rings, sender-constrained tokens, and secure authentication flow for zkdpop-go.",
+    "seoTitle": "zkdpop-go Zero-Knowledge Auth | Sean Nejad / allsmog",
+    "imageCaption": "zkdpop-go artwork for zero-knowledge login, proof-of-possession authentication, DPoP-bound JWTs, and Go middleware."
   },
   {
     "name": "detonate",
@@ -122,14 +167,23 @@
     "accent": "#b91c1c",
     "language": "Python",
     "repo": "https://github.com/allsmog/detonate",
-    "image": "/assets/social/detonate.png",
-    "visual": "/assets/project-visuals/detonate.png",
-    "topics": ["malware-analysis", "malware-sandbox", "dfir", "yara", "suricata"],
+    "image": "/assets/generated/sean-nejad-detonate-malware-analysis-sandbox.jpg",
+    "visual": "/assets/generated/sean-nejad-detonate-malware-analysis-sandbox.jpg",
+    "topics": [
+      "malware-analysis",
+      "malware-sandbox",
+      "dfir",
+      "yara",
+      "suricata"
+    ],
     "highlights": [
       "Sandbox execution paths around Docker and QEMU.",
       "YARA, Suricata, telemetry, and threat-intel enrichment.",
       "Designed for repeatable malware-analysis reporting."
-    ]
+    ],
+    "imageAlt": "Cinematic dark malware-analysis sandbox with sealed containment cube, red telemetry, and neutral evidence artifacts for detonate.",
+    "seoTitle": "detonate Malware Analysis Sandbox | Sean Nejad / allsmog",
+    "imageCaption": "detonate artwork for safe malware-analysis sandboxing, telemetry, detection, enrichment, and repeatable reporting."
   },
   {
     "name": "oxidized-joern",
@@ -144,14 +198,23 @@
     "accent": "#ea580c",
     "language": "Scala / Rust",
     "repo": "https://github.com/allsmog/oxidized-joern",
-    "image": "/assets/project-visuals/oxidized-joern.png",
-    "visual": "/assets/project-visuals/oxidized-joern.png",
-    "topics": ["joern", "code-property-graph", "program-analysis", "static-analysis", "rust"],
+    "image": "/assets/generated/sean-nejad-oxidized-joern-code-property-graph.jpg",
+    "visual": "/assets/generated/sean-nejad-oxidized-joern-code-property-graph.jpg",
+    "topics": [
+      "joern",
+      "code-property-graph",
+      "program-analysis",
+      "static-analysis",
+      "rust"
+    ],
     "highlights": [
       "Explores Rust-first implementation paths around Joern-style analysis.",
       "Keeps code-property-graph concepts visible in the portfolio.",
       "Connects AppSec scanning work to lower-level program-analysis infrastructure."
-    ]
+    ],
+    "imageAlt": "Cinematic dark program-analysis bench with orange code-property graph nodes, AST fragments, and dataflow layers for oxidized-joern.",
+    "seoTitle": "oxidized-joern Code Property Graph Research | Sean Nejad / allsmog",
+    "imageCaption": "oxidized-joern artwork for code-property graph infrastructure, static analysis, and program-analysis research."
   },
   {
     "name": "klee-ng",
@@ -166,14 +229,23 @@
     "accent": "#7c3aed",
     "language": "C++",
     "repo": "https://github.com/allsmog/klee-ng",
-    "image": "/assets/project-visuals/klee-ng.png",
-    "visual": "/assets/project-visuals/klee-ng.png",
-    "topics": ["symbolic-execution", "klee", "llvm", "program-analysis", "fuzzing"],
+    "image": "/assets/generated/sean-nejad-klee-ng-symbolic-execution.jpg",
+    "visual": "/assets/generated/sean-nejad-klee-ng-symbolic-execution.jpg",
+    "topics": [
+      "symbolic-execution",
+      "klee",
+      "llvm",
+      "program-analysis",
+      "fuzzing"
+    ],
     "highlights": [
       "Represents deeper interest in solver-backed analysis and path exploration.",
       "Complements fuzzing and source-to-sink security workflows.",
       "Useful portfolio signal for vulnerability research beyond web scanners."
-    ]
+    ],
+    "imageAlt": "Cinematic dark symbolic-execution graph with purple constraint nodes, solver crystals, and a green solved path for klee-ng.",
+    "seoTitle": "klee-ng Symbolic Execution Research | Sean Nejad / allsmog",
+    "imageCaption": "klee-ng artwork for symbolic execution, solver-backed path exploration, test generation, and vulnerability research."
   },
   {
     "name": "ligolo-ng-relay",
@@ -188,13 +260,22 @@
     "accent": "#2563eb",
     "language": "Go",
     "repo": "https://github.com/allsmog/ligolo-ng-relay",
-    "image": "/assets/project-visuals/ligolo-ng-relay.png",
-    "visual": "/assets/project-visuals/ligolo-ng-relay.png",
-    "topics": ["ligolo-ng", "tunneling", "pivoting", "network-security", "red-team"],
+    "image": "/assets/generated/sean-nejad-ligolo-ng-relay-network-security.jpg",
+    "visual": "/assets/generated/sean-nejad-ligolo-ng-relay-network-security.jpg",
+    "topics": [
+      "ligolo-ng",
+      "tunneling",
+      "pivoting",
+      "network-security",
+      "red-team"
+    ],
     "highlights": [
       "Shows practical network-assessment infrastructure experience.",
       "Fits the authorized pentest and relay tooling side of the portfolio.",
       "Keeps offensive tooling framed around scoped environments."
-    ]
+    ],
+    "imageAlt": "Cinematic dark network-security lab visualization of a blue relay tunnel path, scoped subnet tiles, and operator-controlled routing for ligolo-ng-relay.",
+    "seoTitle": "ligolo-ng-relay Network Security Tooling | Sean Nejad / allsmog",
+    "imageCaption": "ligolo-ng-relay artwork for authorized network-security tunneling, relay infrastructure, and scoped pivot workflows."
   }
 ]

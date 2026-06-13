@@ -4,6 +4,10 @@ import { dirname, join } from "node:path";
 const root = process.cwd();
 const siteUrl = "https://allsmog.github.io";
 const today = "2026-06-12";
+const heroImage = "/assets/generated/sean-nejad-security-research-portfolio.jpg";
+const sitePreviewImage = "/assets/site-preview.jpg";
+const sitePreviewAlt =
+  "Sean Nejad / allsmog security research portfolio preview for ProdSec, AppSec, OSINT, DFIR, and program analysis.";
 const featuredSlugs = new Set(["kuzushi", "oxidized-joern", "klee-ng"]);
 const projects = JSON.parse(readFileSync(join(root, "data/projects.json"), "utf8"));
 
@@ -13,6 +17,15 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
 }
 
 function write(path, content) {
@@ -28,6 +41,18 @@ function write(path, content) {
 
 function absolute(path) {
   return `${siteUrl}${path}`;
+}
+
+function imageObject(path, alt, caption, width = 1280, height = 720) {
+  return {
+    "@type": "ImageObject",
+    url: absolute(path),
+    contentUrl: absolute(path),
+    width,
+    height,
+    description: alt,
+    caption: caption || alt,
+  };
 }
 
 function tagList(topics, limit = topics.length) {
@@ -56,7 +81,7 @@ function featureRow(project, index) {
   return `
     <article class="${className}" style="--project-accent: ${escapeHtml(project.accent)}">
       <a class="feature-art" href="/projects/${project.slug}/" aria-label="${escapeHtml(project.name)} project page">
-        <img src="${project.visual}" alt="${escapeHtml(project.name)} artifact preview" width="1280" height="720">
+        <img src="${project.visual}" alt="${escapeHtml(project.imageAlt)}" width="1280" height="720" decoding="async">
       </a>
       <div class="feature-copy">
         <p class="dossier-label">${escapeHtml(project.domain)}</p>
@@ -77,7 +102,7 @@ function indexCard(project) {
   return `
     <article class="index-card" data-domain="${escapeHtml(project.domain)}" style="--project-accent: ${escapeHtml(project.accent)}">
       <a class="index-art" href="/projects/${project.slug}/" aria-label="${escapeHtml(project.name)} project page">
-        <img src="${project.visual}" alt="${escapeHtml(project.name)} artifact preview" width="1280" height="720">
+        <img src="${project.visual}" alt="${escapeHtml(project.imageAlt)}" width="1280" height="720" decoding="async">
       </a>
       <div class="index-card-body">
         <div class="index-meta">
@@ -96,7 +121,20 @@ function indexCard(project) {
   `;
 }
 
-function shell({ title, description, path = "/", image = "/assets/site-preview.png", body, jsonLd, includeFilterScript = false }) {
+function shell({
+  title,
+  description,
+  path = "/",
+  image = sitePreviewImage,
+  imageAlt = sitePreviewAlt,
+  imageWidth = 1200,
+  imageHeight = 630,
+  imageType = "image/jpeg",
+  body,
+  jsonLd,
+  includeFilterScript = false,
+  preloadImage,
+}) {
   const canonical = absolute(path);
   const fullImage = absolute(image);
   return `<!doctype html>
@@ -106,16 +144,29 @@ function shell({ title, description, path = "/", image = "/assets/site-preview.p
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
+  <meta name="author" content="Sean Nejad">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0c0e12">
   <link rel="canonical" href="${canonical}">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt">
+  ${preloadImage ? `<link rel="preload" as="image" href="${preloadImage}" fetchpriority="high">` : ""}
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sean Nejad / allsmog">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="${fullImage}">
+  <meta property="og:image:secure_url" content="${fullImage}">
+  <meta property="og:image:type" content="${imageType}">
+  <meta property="og:image:width" content="${imageWidth}">
+  <meta property="og:image:height" content="${imageHeight}">
+  <meta property="og:image:alt" content="${escapeHtml(imageAlt)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${fullImage}">
+  <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>
@@ -146,7 +197,7 @@ function shell({ title, description, path = "/", image = "/assets/site-preview.p
 
 function homePage() {
   const description =
-    "Sean Nejad / allsmog builds ProdSec and AppSec systems across AI security, MCP, OSINT, DFIR, malware analysis, reverse engineering, and applied cryptography.";
+    "Sean Nejad / allsmog is a ProdSec and AppSec builder and security researcher working across OSINT, DFIR, program analysis, MCP security, malware analysis, and applied cryptography.";
   const featured = projects.filter((project) => featuredSlugs.has(project.slug));
   const indexProjects = projects.filter((project) => !featuredSlugs.has(project.slug));
   const indexedDomains = [...new Set(indexProjects.map((project) => project.domain))];
@@ -155,6 +206,8 @@ function homePage() {
     position: index + 1,
     url: absolute(`/projects/${project.slug}/`),
     name: project.name,
+    description: project.metaDescription,
+    image: absolute(project.visual),
   }));
 
   const body = `
@@ -173,8 +226,8 @@ function homePage() {
           </div>
         </div>
         <figure class="hero-figure">
-          <img src="/assets/project-visuals/oxidized-joern.png" alt="Code-property-graph artifact preview" width="1280" height="720">
-          <figcaption>case-file figure: code-property graph / symbolic analysis / security workflow evidence</figcaption>
+          <img src="${heroImage}" alt="${sitePreviewAlt}" width="1280" height="720" fetchpriority="high" decoding="async">
+          <figcaption>case-file figure: generated security research portfolio artwork / ProdSec / AppSec / OSINT / DFIR evidence</figcaption>
         </figure>
       </div>
     </section>
@@ -218,21 +271,33 @@ function homePage() {
   `;
 
   return shell({
-    title: "Sean Nejad / allsmog | Security Researcher and Builder",
+    title: "Sean Nejad / allsmog | ProdSec, AppSec, OSINT",
     description,
     body,
     includeFilterScript: true,
+    preloadImage: heroImage,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "ProfilePage",
       name: "Sean Nejad / allsmog",
       url: siteUrl,
+      description,
+      image: imageObject(heroImage, sitePreviewAlt, "Sean Nejad / allsmog security research portfolio artwork."),
+      primaryImageOfPage: imageObject(
+        sitePreviewImage,
+        sitePreviewAlt,
+        "Sean Nejad / allsmog portfolio social preview.",
+        1200,
+        630,
+      ),
       mainEntity: {
         "@type": "Person",
         name: "Sean Nejad",
         alternateName: "allsmog",
         url: siteUrl,
+        image: absolute(heroImage),
         sameAs: ["https://github.com/allsmog"],
+        jobTitle: "Security Researcher and Builder",
         knowsAbout: [
           "Product Security",
           "Application Security",
@@ -270,7 +335,7 @@ function projectPage(project) {
           </div>
         </div>
         <figure class="project-dossier-art">
-          <img src="${project.visual}" alt="${escapeHtml(project.name)} artifact preview" width="1280" height="720">
+          <img src="${project.visual}" alt="${escapeHtml(project.imageAlt)}" width="1280" height="720" fetchpriority="high" decoding="async">
         </figure>
       </div>
     </section>
@@ -304,16 +369,23 @@ function projectPage(project) {
   `;
 
   return shell({
-    title: `${project.name} | Sean Nejad / allsmog`,
+    title: project.seoTitle,
     description,
     path: `/projects/${project.slug}/`,
     image: project.visual,
+    imageAlt: project.imageAlt,
+    imageWidth: 1280,
+    imageHeight: 720,
+    imageType: "image/jpeg",
+    preloadImage: project.visual,
     body,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       name: project.name,
       description: project.description,
+      image: imageObject(project.visual, project.imageAlt, project.imageCaption),
+      thumbnailUrl: absolute(project.visual),
       codeRepository: project.repo,
       programmingLanguage: project.language,
       author: {
@@ -323,6 +395,11 @@ function projectPage(project) {
         url: siteUrl,
       },
       url: absolute(`/projects/${project.slug}/`),
+      mainEntityOfPage: absolute(`/projects/${project.slug}/`),
+      about: project.topics.map((topic) => ({
+        "@type": "Thing",
+        name: topic,
+      })),
       keywords: project.topics.join(", "),
     },
   });
@@ -372,14 +449,32 @@ function filterScript() {
 }
 
 function sitemap() {
-  const urls = ["/", ...projects.map((project) => `/projects/${project.slug}/`)];
+  const entries = [
+    {
+      url: "/",
+      image: sitePreviewImage,
+      imageTitle: "Sean Nejad / allsmog security research portfolio",
+      imageCaption: sitePreviewAlt,
+    },
+    ...projects.map((project) => ({
+      url: `/projects/${project.slug}/`,
+      image: project.visual,
+      imageTitle: `${project.name} by Sean Nejad / allsmog`,
+      imageCaption: project.imageCaption,
+    })),
+  ];
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${entries
   .map(
-    (url) => `  <url>
-    <loc>${absolute(url)}</loc>
+    (entry) => `  <url>
+    <loc>${absolute(entry.url)}</loc>
     <lastmod>${today}</lastmod>
+    <image:image>
+      <image:loc>${absolute(entry.image)}</image:loc>
+      <image:title>${escapeXml(entry.imageTitle)}</image:title>
+      <image:caption>${escapeXml(entry.imageCaption)}</image:caption>
+    </image:image>
   </url>`,
   )
   .join("\n")}
@@ -387,31 +482,42 @@ ${urls
 }
 
 function sitePreviewSvg() {
-  const tiles = projects
-    .slice(0, 6)
-    .map((project, index) => {
-      const x = 650 + (index % 2) * 260;
-      const y = 72 + Math.floor(index / 2) * 164;
-      return `<image href="project-visuals/${project.slug}.png" x="${x}" y="${y}" width="232" height="130" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>`;
-    })
-    .join("\n  ");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
-  <rect width="1280" height="640" fill="#0c0e12"/>
-  <path d="M0 86H1280M0 174H1280M0 262H1280M0 350H1280M0 438H1280M0 526H1280M160 0V640M320 0V640M480 0V640M640 0V640M800 0V640M960 0V640M1120 0V640" stroke="#242832" stroke-width="1" opacity="0.42"/>
-  ${tiles}
-  <rect width="1280" height="640" fill="url(#shade)"/>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <image href="generated/sean-nejad-security-research-portfolio.jpg" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1200" height="630" fill="url(#shade)"/>
+  <path d="M0 86H1200M0 174H1200M0 262H1200M0 350H1200M0 438H1200M0 526H1200M160 0V630M320 0V630M480 0V630M640 0V630M800 0V630M960 0V630M1120 0V630" stroke="#e8e6e1" stroke-width="1" opacity="0.08"/>
   <defs>
     <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0" stop-color="#0c0e12" stop-opacity="0.98"/>
-      <stop offset="0.62" stop-color="#0c0e12" stop-opacity="0.84"/>
-      <stop offset="1" stop-color="#0c0e12" stop-opacity="0.36"/>
+      <stop offset="0.48" stop-color="#0c0e12" stop-opacity="0.88"/>
+      <stop offset="0.82" stop-color="#0c0e12" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#0c0e12" stop-opacity="0.05"/>
     </linearGradient>
   </defs>
-  <text x="72" y="116" font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace" font-size="23" font-weight="700" fill="#d4ff4f">prodsec / appsec / natsec / osint</text>
-  <text x="72" y="254" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="850" fill="#e8e6e1">Sean Nejad</text>
-  <text x="72" y="316" font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace" font-size="27" fill="#9ca3af">// @allsmog · security research + builder</text>
-  <text x="72" y="404" font-family="Inter, Arial, sans-serif" font-size="29" fill="#c9c7c1">Agentic SAST, CPG analysis, symbolic execution, OSINT, DFIR, malware, applied crypto.</text>
+  <text x="66" y="98" font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace" font-size="23" font-weight="700" fill="#d4ff4f">prodsec / appsec / natsec / osint</text>
+  <text x="66" y="246" font-family="Inter, Arial, sans-serif" font-size="96" font-weight="850" fill="#e8e6e1">Sean Nejad</text>
+  <text x="66" y="310" font-family="JetBrains Mono, SFMono-Regular, Consolas, monospace" font-size="28" fill="#b8bec7">// @allsmog · security researcher + builder</text>
+  <text x="66" y="400" font-family="Inter, Arial, sans-serif" font-size="28" fill="#c9c7c1">Agentic SAST, CPG analysis, symbolic execution, OSINT, DFIR, malware, applied crypto.</text>
 </svg>`;
+}
+
+function llmsText() {
+  return `# Sean Nejad / allsmog
+
+Canonical site: ${siteUrl}
+GitHub: https://github.com/allsmog
+
+Sean Nejad is a builder and security researcher focused on ProdSec, AppSec, OSINT, DFIR, malware analysis, program analysis, MCP security, network security, and applied cryptography.
+
+## Core pages
+
+- ${siteUrl}/ — portfolio index and selected work
+${projects.map((project) => `- ${absolute(`/projects/${project.slug}/`)} — ${project.name}: ${project.metaDescription}`).join("\n")}
+
+## Keywords
+
+ProdSec, AppSec, security researcher, builder, OSINT, NatSec interest, DFIR, malware analysis, reverse engineering, agentic SAST, code-property graph, CPG, symbolic execution, KLEE, Joern, MCP security, penetration testing automation, network security, tunneling, applied cryptography, zero-knowledge authentication.
+`;
 }
 
 write("index.html", homePage());
@@ -423,5 +529,6 @@ write("robots.txt", `User-agent: *
 Allow: /
 Sitemap: ${absolute("/sitemap.xml")}`);
 write("sitemap.xml", sitemap());
+write("llms.txt", llmsText());
 write(".nojekyll", "");
 write("assets/site-preview.svg", sitePreviewSvg());

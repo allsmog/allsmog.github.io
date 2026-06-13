@@ -1,43 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://allsmog.github.io/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/site-preview.jpg</image:loc>
+      <image:title>Sean Nejad / allsmog security research portfolio</image:title>
+      <image:caption>Sean Nejad / allsmog security research portfolio preview for ProdSec, AppSec, OSINT, DFIR, and program analysis.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/kuzushi/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-kuzushi-agentic-appsec-scanner.jpg</image:loc>
+      <image:title>Kuzushi by Sean Nejad / allsmog</image:title>
+      <image:caption>Kuzushi agentic AppSec scanner artwork for source-to-sink security analysis and evidence-backed triage.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/mcp-pentest/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-mcp-pentest-security-automation.jpg</image:loc>
+      <image:title>mcp-pentest by Sean Nejad / allsmog</image:title>
+      <image:caption>mcp-pentest artwork for authorized MCP security automation, reconnaissance orchestration, and reporting workflows.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/signaltrace/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-signaltrace-osint-dashboard.jpg</image:loc>
+      <image:title>SignalTrace by Sean Nejad / allsmog</image:title>
+      <image:caption>SignalTrace OSINT dashboard artwork for crisis, maritime, aviation, infrastructure, and humanitarian signal analysis.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/volatilityai/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-volatilityai-dfir-memory-forensics.jpg</image:loc>
+      <image:title>VolatilityAI by Sean Nejad / allsmog</image:title>
+      <image:caption>VolatilityAI artwork for DFIR memory forensics, evidence timelines, report diffing, and investigation workflows.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/zkdpop-go/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-zkdpop-go-zero-knowledge-auth.jpg</image:loc>
+      <image:title>zkdpop-go by Sean Nejad / allsmog</image:title>
+      <image:caption>zkdpop-go artwork for zero-knowledge login, proof-of-possession authentication, DPoP-bound JWTs, and Go middleware.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/detonate/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-detonate-malware-analysis-sandbox.jpg</image:loc>
+      <image:title>detonate by Sean Nejad / allsmog</image:title>
+      <image:caption>detonate artwork for safe malware-analysis sandboxing, telemetry, detection, enrichment, and repeatable reporting.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/oxidized-joern/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-oxidized-joern-code-property-graph.jpg</image:loc>
+      <image:title>oxidized-joern by Sean Nejad / allsmog</image:title>
+      <image:caption>oxidized-joern artwork for code-property graph infrastructure, static analysis, and program-analysis research.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/klee-ng/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-klee-ng-symbolic-execution.jpg</image:loc>
+      <image:title>klee-ng by Sean Nejad / allsmog</image:title>
+      <image:caption>klee-ng artwork for symbolic execution, solver-backed path exploration, test generation, and vulnerability research.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://allsmog.github.io/projects/ligolo-ng-relay/</loc>
     <lastmod>2026-06-12</lastmod>
+    <image:image>
+      <image:loc>https://allsmog.github.io/assets/generated/sean-nejad-ligolo-ng-relay-network-security.jpg</image:loc>
+      <image:title>ligolo-ng-relay by Sean Nejad / allsmog</image:title>
+      <image:caption>ligolo-ng-relay artwork for authorized network-security tunneling, relay infrastructure, and scoped pivot workflows.</image:caption>
+    </image:image>
   </url>
 </urlset>
